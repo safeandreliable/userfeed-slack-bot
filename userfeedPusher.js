@@ -19,7 +19,7 @@ module.exports = class userfeedPusher {
   }
 
   async submitForm(fieldValues) {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
     const page = await browser.newPage();
     await page.setViewport({ width: 1366, height: 768 });
 
