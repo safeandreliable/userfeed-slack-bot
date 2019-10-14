@@ -14,6 +14,7 @@ module.exports = class userfeedPusher {
     newData.feed_id = this.nameToFeedId[feedName];
     newData.title = data["uf-title"];
     newData.description = data["uf-desc"];
+    newData.description += "\n\n\nSlack Message: " + data.permalink;
 
     return newData;
   }
