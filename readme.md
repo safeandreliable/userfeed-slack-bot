@@ -16,6 +16,8 @@ To get the app setup and running first run: `npm install` (I may have forgotten 
 
 Then just run `node app.js` or `npm start`
 
+Also make sure you go through the `config.js` file and setup your dashboard URL and nameToIds of the different feeds.
+
 ### Heroku Configuration
 
 - Create new app
