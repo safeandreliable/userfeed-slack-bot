@@ -2,9 +2,10 @@ const axios = require("axios");
 const modal = require("./slackbot-modal");
 
 module.exports = class slackPusher {
-  constructor(token, urls) {
+  constructor(token, urls, rollbar) {
     this.token = token;
     this.urls = urls;
+    this.rollbar = rollbar;
   }
 
   async sendModal(payload) {
@@ -30,6 +31,7 @@ module.exports = class slackPusher {
         return;
       })
       .catch(err => {
+        this.rollbar.error("-- Error on UF Modal opening", err);
         console.log("-- Error on UF Modal opening", err);
       });
   }
@@ -50,6 +52,7 @@ module.exports = class slackPusher {
         return res.data.permalink;
       })
       .catch(err => {
+        this.rollbar.error("Error on message permalink retrevial", err);
         console.log("Error on message permalink retrevial", err);
       });
   }

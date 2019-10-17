@@ -1,4 +1,7 @@
 module.exports = {
+  rollbar: {
+    token: process.env.ROLLBAR_ACCESS_TOKEN
+  },
   slack: {
     token: process.env.TOKEN,
     signingSecret: process.env.SIGNING_SECRET,
